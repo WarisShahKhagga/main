@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bin Jaffar Online Store</title>
+  <style>
+    @font-face {
+      font-family: 'Edwardian Script';
+      src: url('Fonts/ITCEDSCR.TTF') format('truetype');
+    }
+
+    /* Center body content */
+    @keyframes gradientMove {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    body {
+      background-image: url(background.jpg);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      backdrop-filter: blur(15px);
+      height: auto;
+      max-height: 1100vh;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      align-items: center;
+      animation: gradientMove 120s ease infinite;
+    }
+
+    .navbar {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-weight: bolder;
+      font-size: 16px;
+    }
+
+    /* Home Button */
+    .hombtn {
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      margin-top: 10px;
+      text-align: center;
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(15px);
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .hombtn:hover {
+      background-color: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(10px);
+      color: #fff;
+      transform: scale(1.1);
+    }
+
+    /* Search Box */
+    .srchbx {
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(15px);
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 10px;
+      transition: all 0.15s ease;
+    }
+
+    .srchbx:hover {
+      background-color: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(10px);
+      transform: scale(1.1);
+    }
+
+    .srchbx:hover .srch,
+    .srchbx:hover .srch-btn {
+      color: #fff;
+    }
+
+    /* Search Input */
+    .srch {
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(15px);
+      border-radius: 5px;
+      padding: 10px 30px;
+      font-size: 16px;
+      border: none;
+      outline: none;
+      transition: all 0.15s ease;
+    }
+
+    .srch:hover {
+      background-color: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(10px);
+      transform: scale(1.1);
+    }
+
+    /* Search Button */
+    .srch-btn {
+      border: none;
+      border-radius: 5px;
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(15px);
+      color: #fff;
+      padding: 10px 15px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .srch-btn:hover {
+      background-color: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(10px);
+      color: #fff;
+      transform: scale(1.1);
+    }
+
+    /* Login/Signup Button */
+    .lgnsnp {
+      border: none;
+      border-radius: 25px;
+      background-color: #fff;
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(15px);
+      color: #fff;
+      padding: 10px 10px;
+      height: 50px;
+      width: 50px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+
+    .lgnsnp:hover {
+      background-color: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(10px);
+      color: #fff;
+      transform: scale(1.1);
+    }
+
+    .options {
+      border: none;
+      border-radius: 5px;
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(15px);
+      color: #fff;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      transition: all 0.15s ease;
+    }
+
+    .options:hover {
+      background-color: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(10px);
+      color: #fff;
+      transform: scale(1.1);
+    }
+
+    /* Item Box */
+    .box {
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(15px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      padding: 25px 50px;
+      transition: all 0.15s ease;
+      color: #fff;
+      margin-top: 20px;
+    }
+
+    .box:hover {
+      background-color: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(10px);
+      transform: scale(1.1);
+      color: #fff;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      align-items: center;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .button {
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(15px);
+      border: none;
+      border-radius: 10px;
+      height: 300px;
+      width: 180px;
+      margin-left: 10px;
+      margin-right: 10px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: all 0.15s ease;
+    }
+
+    .button:hover {
+      background-color: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(10px);
+      transform: scale(1.1);
+      box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .button:active {
+      transform: scale(1.09);
+      backdrop-filter: blur(5px);
+      box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      margin-left: 10px;
+      margin-right: 10px;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .img {
+      background-color: #fff;
+      height: 200px;
+      width: 180px;
+      border: none;
+      border-radius: 10px;
+    }
+
+    a {
+      text-decoration: none;
+      font-weight: bolder;
+      font-size: 16px;
+      color: #fff;
+    }
+
+    .atc-bn-btn {
+      height: 28px;
+      width: 78px;
+      border: none;
+      border-radius: 5px;
+      margin-left: 6px;
+      margin-right: 6px;
+      background-color: rgba(255, 100, 100, 0.5);
+      backdrop-filter: blur(15px);
+      color: #fff;
+      transition: all 0.15s ease;
+    }
+
+    .atc-bn-btn:hover {
+      transform: scale(1.1);
+      opacity: 0.9;
+    }
+
+    .atc-bn-btn:active {
+      transform: scale(0.9);
+      opacity: 0.8;
+    }
+
+    .ctgry/filters {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      align-items: center;
+      text-align: center;
+      gap: 10px;
+    }
+
+    @media (max-width: 600px) {
+      .ctgry/.filters {
+        flex-direction: column;
+      }
+    }
+
+    .bbctgry {
+      margin-right: 25px;
+      margin-left: 0px;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      color: #fff;
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(15px);
+      font-weight: bold;
+      font-size: 20px;
+      transition: all 0.15 ease;
+    }
+
+    .bbctgry:hover {
+      background-color: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(10px);
+      color: #fff;
+      transform: scale(1.1);
+    }
+
+    .bbctgry:active {
+      background-color: rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(5px);
+      color: #fff;
+      transform: scale(1);
+    }
+
+    .filters {
+      margin-left: 25px;
+      margin-right: 25px;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      color: #fff;
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(15px);
+      font-weight: bold;
+      font-size: 20px;
+      transition: all 0.15 ease;
+    }
+
+    .filters:hover {
+      background-color: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(10px);
+      color: #fff;
+      transform: scale(1.1);
+    }
+
+    .filters:active {
+      background-color: rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(5px);
+      color: #fff;
+      transform: scale(1);
+    }
+
+    .cart {
+      margin-left: 25px;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      color: #fff;
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(15px);
+      font-weight: bold;
+      font-size: 20px;
+      transition: all 0.15 ease;
+    }
+
+    .cart:hover {
+      background-color: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(10px);
+      color: #fff;
+      transform: scale(1.1);
+    }
+
+    .cart:active {
+      background-color: rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(5px);
+      color: #fff;
+      transform: scale(1);
+    }
+
+    .pagination {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .pgntnbtns {
+      padding: 10px 20px;
+      color: #fff;
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(15px);
+      border: none;
+      border-radius: 5px;
+    }
+
+    .pgntnbtns:hover {
+      background-color: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(10px);
+      color: #fff;
+      transform: scale(1.1);
+    }
+
+    .pgntnbtns:active {
+      background-color: rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(5px);
+      color: #fff;
+      transform: scale(1);
+    }
+
+    .copyright {
+      color: #fff;
+      background-color: rgba(0, 0, 255, 0.1);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="navbar">
+    <button class="lgnsnp" style="font-weight: bold; font-size: 20px;"><ion-icon name="person"
+        class="icon-white"></ion-icon></button>
+    <button class="options" style="font-weight: bold; font-size: 20px;"><ion-icon name="menu"></ion-icon></button>
+    <a href="#" target="_self"><button class="hombtn" style="font-weight: bold; font-size: 20px;">
+        Bin Jaffar</button>
+    </a>
+    <br><br>
+  </div>
+  <hr>
+  <div class="navbar">
+    <div class="srchbx">
+      <input type="text" placeholder="Search your keywords" class="srch">
+      <button class="srch-btn" style="font-weight: bold; font-size: 20px;"><ion-icon name="search"></ion-icon></button>
+    </div>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br><br><br>
+  <br>
+  <br>
+  <div class="ctgry/filters">
+    <button class="bbctgry"><ion-icon name="list"></ion-icon></button>
+    <button class="filters"><ion-icon name="filter"></ion-icon></button>
+    <button class="cart"><ion-icon name="cart"></ion-icon></button>
+  </div><br>
+  <hr><br>
+  <div class="container">
+
+    <div class="button">
+      <img class="img" src="01.jpg"><br>
+      <a href="#">NIKE AIR MAX NUAXIS<br>Rs.36,000</a>
+      <div class="buttons">
+        <button class="atc-bn-btn">Add to cart</button>
+        <button class="atc-bn-btn">Buy now</button>
+      </div>
+    </div>
+    <div class="button">
+      <img class="img" src="02.jpg"><br>
+      <a href="#">ESS+ LOGO LAB CAT TEE<br>
+        Rs.7,800</a>
+      <div class="buttons">
+        <button class="atc-bn-btn">Add to cart</button>
+        <button class="atc-bn-btn">Buy now</button>
+      </div>
+    </div>
+    <div class="button">
+      <img class="img" src="03.jpg"><br>
+      <a href="#">BBALLCAP LT MET<br><br>
+        Rs.7,200</a>
+      <div class="buttons">
+        <button class="atc-bn-btn">Add to cart</button>
+        <button class="atc-bn-btn">Buy now</button>
+      </div>
+    </div>
+    <div class="button">
+      <img class="img" src="04.jpg"><br>
+      <a href="#">TECH PRINT PANEL ANKLE LEG<br>
+        Rs.15,000</a>
+      <div class="buttons">
+        <button class="atc-bn-btn">Add to cart</button>
+        <button class="atc-bn-btn">Buy now</button>
+      </div>
+    </div>
+    <div class="button">
+      <img class="img" src="05.jpg"><br>
+      <a href="#">ARIZONA SFB BF<br><br>
+        Rs.30,000</a>
+      <div class="buttons">
+        <button class="atc-bn-btn">Add to cart</button>
+        <button class="atc-bn-btn">Buy now</button>
+      </div>
+    </div>
+    <div class="button">
+      <img class="img" src="06.jpg"><br>
+      <a href="#">GEL-ROCKET 11<br><br>
+        Rs.28,200</a>
+      <div class="buttons">
+        <button class="atc-bn-btn">Add to cart</button>
+        <button class="atc-bn-btn">Buy now</button>
+      </div>
+    </div>
+    <div class="button">
+      <img class="img" src="07.jpg"><br>
+      <a href="#">Men-PREDATOR LEAGUE FG<br>
+        Rs.35,600</a>
+      <div class="buttons">
+        <button class="atc-bn-btn">Add to cart</button>
+        <button class="atc-bn-btn">Buy now</button>
+      </div>
+    </div>
+    <div class="button">
+      <img class="img" src="08.jpg"><br>
+      <a href="#">EPP CLB<br><br>
+        Rs.7,500</a>
+      <div class="buttons">
+        <button class="atc-bn-btn">Add to cart</button>
+        <button class="atc-bn-btn">Buy now</button>
+      </div>
+    </div>
+    <div class="button">
+      <img class="img" src="09.jpg"><br>
+      <a href="#">Y NK ACDMY TEAM BKPK<br>
+        Rs.16,000</a>
+      <div class="buttons">
+        <button class="atc-bn-btn">Add to cart</button>
+        <button class="atc-bn-btn">Buy now</button>
+      </div>
+    </div>
+    <div class="button">
+      <img class="img" src="10.jpg"><br>
+      <a href="#">UA LOCKDOWN 6<br><br>
+        Rs.26,500</a>
+      <div class="buttons">
+        <button class="atc-bn-btn">Add to cart</button>
+        <button class="atc-bn-btn">Buy now</button>
+      </div>
+    </div>
+    <div class="button">
+      <img class="img" src="11.jpg"><br>
+      <a href="#">CURRY YOUNG WOLF TEE<br>
+        Rs.11,000</a>
+      <div class="buttons">
+        <button class="atc-bn-btn">Add to cart</button>
+        <button class="atc-bn-btn">Buy now</button>
+      </div>
+    </div>
+    <div class="button">
+      <img class="img" src="12.jpg"><br>
+      <a href="#">GA U NK DF CLUB CAP U CB FRK P<br>
+        Rs.7,500</a>
+      <div class="buttons">
+        <button class="atc-bn-btn">Add to cart</button>
+        <button class="atc-bn-btn">Buy now</button>
+      </div>
+    </div>
+    <div class="button">
+      <img class="img" src="13.jpg"><br>
+      <a href="#">NIKE EVERYDAY PLAYGROUND 8P <br>
+        Rs.9,500</a>
+      <div class="buttons">
+        <button class="atc-bn-btn">Add to cart</button>
+        <button class="atc-bn-btn">Buy now</button>
+      </div>
+    </div>
+    <div class="button">
+      <img class="img" src="14.jpg"><br>
+      <a href="#">Men-TERREX EASTRAIL 2 R.RDY<br>
+        Rs.38,900</a>
+      <div class="buttons">
+        <button class="atc-bn-btn">Add to cart</button>
+        <button class="atc-bn-btn">Buy now</button>
+      </div>
+    </div>
+    <div class="button">
+      <img class="img" src="15.jpg"><br>
+      <a href="#">BSC 3S INS JKT<br><br>
+        Rs.39,300</a>
+      <div class="buttons">
+        <button class="atc-bn-btn">Add to cart</button>
+        <button class="atc-bn-btn">Buy now</button>
+      </div>
+    </div>
+    <div class="button">
+      <img class="img" src="16.jpg"><br>
+      <a href="#">FERRARI DRIFT CAT DECIMA<br>
+        Rs.38,000</a>
+      <div class="buttons">
+        <button class="atc-bn-btn">Add to cart</button>
+        <button class="atc-bn-btn">Buy now</button>
+      </div>
+    </div>
+    <div class="button">
+      <img class="img" src="17.jpg"><br>
+      <a href="#">MAPF1 ESS LOGO TEE<br><br>
+        Rs.10,500</a>
+      <div class="buttons">
+        <button class="atc-bn-btn">Add to cart</button>
+        <button class="atc-bn-btn">Buy now</button>
+      </div>
+    </div>
+    <div class="button">
+      <img class="img" src="18.jpg"><br>
+      <a href="#">FERRARI RACE COLORED BIG SHIELD <br>
+        Rs.10,500</a>
+      <div class="buttons">
+        <button class="atc-bn-btn">Add to cart</button>
+        <button class="atc-bn-btn">Buy now</button>
+      </div>
+    </div>
+    <div class="button">
+      <img class="img" src="19.jpg"><br>
+      <a href="#">CA Pro Performance<br><br>Rs.108,000</a>
+      <div class="buttons">
+        <button class="atc-bn-btn">Add to cart</button>
+        <button class="atc-bn-btn">Buy now</button>
+      </div>
+    </div>
+    <div class="button">
+      <img class="img" src="20.jpg"><br>
+      <a href="#">CA PRO Power<br><br>
+        Rs.7,500</a>
+      <div class="buttons">
+        <button class="atc-bn-btn">Add to cart</button>
+        <button class="atc-bn-btn">Buy now</button>
+      </div>
+    </div>
+    <div class="button">
+      <img class="img" src="21.jpg"><br>
+      <a href="#">Wickets CA <br><br>Rs.1,800</a>
+      <div class="buttons">
+        <button class="atc-bn-btn">Add to cart</button>
+        <button class="atc-bn-btn">Buy now</button>
+      </div>
+    </div>
+    <div class="button">
+      <img class="img" src="22.jpg"><br>
+      <a href="#">Super Test Red <br><br>Rs.8,950</a>
+      <div class="buttons">
+        <button class="atc-bn-btn">Add to cart</button>
+        <button class="atc-bn-btn">Buy now</button>
+      </div>
+    </div>
+    <div class="button">
+      <img class="img" src="23.jpg"><br>
+      <a href="#">Super Test White <br><br>Rs.9,550</a>
+      <div class="buttons">
+        <button class="atc-bn-btn">Add to cart</button>
+        <button class="atc-bn-btn">Buy now</button>
+      </div>
+    </div>
+    <div class="button">
+      <img class="img" src="24.jpg"><br>
+      <a href="#">CA PLUS 10000 Pack of 30 <br>Rs.7,500</a>
+      <div class="buttons">
+        <button class="atc-bn-btn">Add to cart</button>
+        <button class="atc-bn-btn">Buy now</button>
+      </div>
+    </div>
+    <div class="button">
+      <img class="img" src="25.jpg"><br>
+      <a href="#">CA GOLD Pack of 12 <br><br>Rs.3,100</a>
+      <div class="buttons">
+        <button class="atc-bn-btn">Add to cart</button>
+        <button class="atc-bn-btn">Buy now</button>
+      </div>
+    </div>
+    <div class="button">
+      <img class="img" src="26.jpg"><br>
+      <a href="#">Pro 1000 Junior Complete Kit<br>Rs.24,800</a>
+      <div class="buttons">
+        <button class="atc-bn-btn">Add to cart</button>
+        <button class="atc-bn-btn">Buy now</button>
+      </div>
+    </div>
+    <div class="button">
+      <img class="img" src="27.jpg"><br>
+      <a href="#">CA Big Bang Pro <br><br>Rs.8,500</a>
+      <div class="buttons">
+        <button class="atc-bn-btn">Add to cart</button>
+        <button class="atc-bn-btn">Buy now</button>
+      </div>
+    </div>
+    <div class="button">
+      <img class="img" src="28.jpg"><br>
+      <a href="#">P47 Wireless Foldable Bt Headset <br>Rs.1,000</a>
+      <div class="buttons">
+        <button class="atc-bn-btn">Add to cart</button>
+        <button class="atc-bn-btn">Buy now</button>
+      </div>
+    </div>
+    <div class="button">
+      <img class="img" src="29.jpg"><br>
+      <a href="#">SONY PlayStation 5 Slim Disc Edition 1TB <br>Rs.180,000</a>
+      <div class="buttons">
+        <button class="atc-bn-btn">Add to cart</button>
+        <button class="atc-bn-btn">Buy now</button>
+      </div>
+    </div>
+    <div class="button">
+      <img class="img" src="30.jpg"><br>
+      <a href="#">PS5 Digital Edition 825GB <br>Rs.150,000</a>
+      <div class="buttons">
+        <button class="atc-bn-btn">Add to cart</button>
+        <button class="atc-bn-btn">Buy now</button>
+      </div>
+    </div>
+    <div class="button">
+      <img class="img" src="31.jpg"><br>
+      <a href="#">Microsoft XBOX Series X 1TB <br>Rs.185,000</a>
+      <div class="buttons">
+        <button class="atc-bn-btn">Add to cart</button>
+        <button class="atc-bn-btn">Buy now</button>
+      </div>
+    </div>
+    <div class="button">
+      <img class="img" src="32.jpg"><br>
+      <a href="#">SONY PS5 Pro 1TB <br><br>Rs.225,000</a>
+      <div class="buttons">
+        <button class="atc-bn-btn">Add to cart</button>
+        <button class="atc-bn-btn">Buy now</button>
+      </div>
+    </div>
+    <div class="button">
+      <img class="img" src="33.jpg"><br>
+      <a href="#">Microsoft XBOX Series S 512GB w/ 3 Months GP <br>100,000</a>
+      <div class="buttons">
+        <button class="atc-bn-btn">Add to cart</button>
+        <button class="atc-bn-btn">Buy now</button>
+      </div>
+    </div>
+    <div class="button">
+      <img class="img" src="34.jpg"><br>
+      <a href="#">Microsoft XBOX ONE X 1TB <br>Rs.85,000</a>
+      <div class="buttons">
+        <button class="atc-bn-btn">Add to cart</button>
+        <button class="atc-bn-btn">Buy now</button>
+      </div>
+    </div>
+    <div class="button">
+      <img class="img" src="35.jpg"><br>
+      <a href="#">Sony PS4 Pro 1TB <br><br>Rs.80,000</a>
+      <div class="buttons">
+        <button class="atc-bn-btn">Add to cart</button>
+        <button class="atc-bn-btn">Buy now</button>
+      </div>
+    </div>
+    <div class="button">
+      <img class="img" src="36.jpg"><br>
+      <a href="#">PS3 Slim 320GB <br><br>Rs.30,000</a>
+      <div class="buttons">
+        <button class="atc-bn-btn">Add to cart</button>
+        <button class="atc-bn-btn">Buy now</button>
+      </div>
+    </div>
+  </div>
+  <br><br><br><br><br>
+  <div class="pagination">
+    <button class="pgntnbtns"><ion-icon name="arrow-back"></ion-icon></button>
+    <button class="pgntnbtns">1</button>
+    <button class="pgntnbtns">2</button>
+    <button class="pgntnbtns">3</button>
+    <button class="pgntnbtns">4</button>
+    <button class="pgntnbtns">5</button>
+    <button class="pgntnbtns">...</button>
+    <button class="pgntnbtns"><ion-icon name="arrow-forward"></ion-icon></button>
+  </div>
+  <br><br><br>
+  <hr>
+  <br>
+  <div class="copyright">© 2025 | This Website is Copyrighted, and <br> only Waris Ali Shah Khagga has The legal rights
+    to edit, modify this Website. </div>
+  <br><br><br>
+
+</body>
+<script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+
+</html>
