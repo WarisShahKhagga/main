@@ -432,50 +432,6 @@
       color: #fff;
       background-color: rgba(0, 0, 255, 0.1);
     }
-    .slide-menu
-    {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background-color: rgba(0, 0, 225, 0.1);
-      backdrop-filter: blur(15px);
-      border: none;
-      border-radius: 5px;
-      padding: 10px 0px;
-      min-width: 150px;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1)
-      z-index: 1;
-    }
-    .slide-menu a
-    {
-      display: block;
-      padding: 10px 20px;
-      color: #fff;
-      text-dexoration: none;
-      font-weight: bold;
-      font-size: 18px;
-      transition: background-color 0.15s ease;
-    }
-    .slide-menu a:hover
-    {
-      background-color: rgba(0, 0, 255, 0.1);
-    }
-    .navbar:hover .slide-menu
-    {
-      display: block;
-      animation: slideIn 0.15s ease-out;
-    }
-    @keyframes slideIn
-    from {
-      opacity: 0;
-      transform: translateY(-10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    }
       
   </style>
 </head>
@@ -484,10 +440,6 @@
   <div class="navbar">
     <button class="lgnsnp" style="font-weight: bold; font-size: 20px;"><ion-icon name="person"
         class="icon-white"></ion-icon></button>
-      <div class="slide-menu">
-        <a href="#">LogIn</a>
-        <a href="#">SignUp</a>
-      </div>
     <button class="options" style="font-weight: bold; font-size: 20px;"><ion-icon name="menu"></ion-icon></button>
     <a href="#" target="_self"><button class="hombtn" style="font-weight: bold; font-size: 20px;">
         Bin Jaffar</button>
